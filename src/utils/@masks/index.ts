@@ -1,10 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import IMask from 'imask'
-
-interface IMaskProps {
-  masked: IMask.AnyMaskedOptions | IMask.AnyMasked
-  transform?: (value: string) => any
-}
+import { IMaskProps } from './@interfaces'
 
 export const masker = ({ masked, transform }: IMaskProps) => {
   const mask = IMask.createPipe(
@@ -32,5 +28,6 @@ export const masker = ({ masked, transform }: IMaskProps) => {
     apply,
     transform: transform || unmask,
     unmask,
+    masked,
   }
 }

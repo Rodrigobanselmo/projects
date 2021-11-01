@@ -2,7 +2,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useState } from 'react'
 
-export function updateInterval() {
+export function useUpdateInterval() {
   const [state, setState] = useState(0)
 
   useEffect(() => {

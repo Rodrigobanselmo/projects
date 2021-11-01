@@ -1,8 +1,11 @@
 import TextField from '@mui/material/TextField'
+// import IMask, { MaskElement } from 'imask'
 import React from 'react'
+// import { useEffect, useRef } from 'react'
 import { Controller } from 'react-hook-form'
 
-import { FormInputProps } from './interfaces'
+// import { mergeRefs } from '../../utils/mergeRefs'
+import { FormInputProps } from './@interfaces'
 
 export const TextFieldInput = ({
   defaultValue = '',
@@ -10,6 +13,8 @@ export const TextFieldInput = ({
   name,
   control,
   label,
+  onChange,
+  ...restInput
 }: FormInputProps) => {
   return (
     <Controller
@@ -17,7 +22,7 @@ export const TextFieldInput = ({
       control={control}
       defaultValue={defaultValue}
       render={({
-        field: { onBlur, onChange, ref, value, ...rest },
+        field: { onBlur, onChange: func, ref, value, ...rest },
         fieldState: { error },
       }) => (
         <TextField
@@ -26,7 +31,8 @@ export const TextFieldInput = ({
           error={!!error}
           onChange={(e) => {
             mask && mask(e)
-            onChange(e)
+            onChange && onChange(e)
+            func(e)
           }}
           onBlur={onBlur}
           inputRef={ref}
@@ -35,6 +41,7 @@ export const TextFieldInput = ({
           variant="outlined"
           value={value || ''}
           {...rest}
+          {...restInput}
         />
       )}
     />
