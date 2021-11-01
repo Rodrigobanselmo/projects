@@ -46,6 +46,7 @@ export const TextForm = () => {
     >
       <Stack spacing={2}>
         <TextFieldInput
+          defaultValue="Rodrigo Barbosa"
           inputProps={{ style: { textTransform: 'capitalize' } }}
           label="Nome"
           control={control}
@@ -60,7 +61,7 @@ export const TextForm = () => {
           onChange={() => console.log('onChange')}
         />
         <TextFieldInput
-          // defaultValue="R$ 1.000.000"
+          defaultValue="R$ 1.000.000"
           label="Currency"
           control={control}
           name="currency"

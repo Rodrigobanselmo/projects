@@ -124,6 +124,7 @@ export const TextFormRegister = () => {
           Submit
         </Button>
         <Text error>*set value does not work properly</Text>
+        <Text error>*reset fails if default value is defined</Text>
         <Text warn>*Does not have set blur method</Text>
         <Text warn>*Reset does not bring label down</Text>
         <Text warn>*By default it return masked value on submit</Text>
